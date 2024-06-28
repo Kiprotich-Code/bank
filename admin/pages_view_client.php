@@ -50,6 +50,31 @@ if (isset($_POST['change_client_password'])) {
     }
 }
 
+    // Send Message to Client
+    if (isset($_POST['send_message'])) {
+        $message = mysqli_real_escape_string($mysqli, $_POST['message']);
+        $client_number = $_GET['client_number'];
+
+        // Retrieve client_id based on client_number
+        $query_client_id = "SELECT client_id FROM iB_clients WHERE client_number = ?";
+        $stmt_client_id = $mysqli->prepare($query_client_id);
+        $stmt_client_id->bind_param('s', $client_number);
+        $stmt_client_id->execute();
+        $result_client_id = $stmt_client_id->get_result();
+        $client_id_row = $result_client_id->fetch_assoc();
+        $client_id = $client_id_row['client_id'];
+
+        // Insert message into client_messages table
+        $query = "INSERT INTO client_messages (client_id, message, date_sent) VALUES (?, ?, NOW())";
+        $stmt = $mysqli->prepare($query);
+        $stmt->bind_param('is', $client_id, $message);
+        
+        if ($stmt->execute()) {
+            $success = "Message sent successfully!";
+        } else {
+            $err = "Error sending message: " . $stmt->error;
+        }
+    }
 
 ?>
 <!DOCTYPE html>
@@ -204,6 +229,7 @@ if (isset($_POST['change_client_password'])) {
                                         <ul class="nav nav-pills">
                                             <li class="nav-item"><a class="nav-link active" href="#update_Profile" data-toggle="tab">Update Profile</a></li>
                                             <li class="nav-item"><a class="nav-link" href="#Change_Password" data-toggle="tab">Change Password</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#send_message" data-toggle="tab">Send Message</a></li>
                                         </ul>
                                     </div><!-- /.card-header -->
                                     <div class="card-body">
@@ -288,6 +314,24 @@ if (isset($_POST['change_client_password'])) {
                                                 </form>
                                             </div>
                                             <!-- /.tab-pane -->
+
+                                            <!-- Send Message  -->
+                                            <div class="tab-pane" id="send_message">
+                                                <form method="post" class="form-horizontal">
+                                                    <div class="form-group row">
+                                                        <label for="inputMessage" class="col-sm-2 col-form-label">Message</label>
+                                                        <div class="col-sm-10">
+                                                            <textarea name="message" class="form-control" id="inputMessage" rows="5" required></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="offset-sm-2 col-sm-10">
+                                                            <button type="submit" name="send_message" class="btn btn-outline-success">Send Message</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
                                         </div>
                                         <!-- /.tab-content -->
                                     </div><!-- /.card-body -->

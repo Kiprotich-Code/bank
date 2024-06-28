@@ -94,8 +94,8 @@ while ($sys = $res->fetch_object()) {
                 <div class="col fade-in">
                     <img src="./dist/test.webp" alt="" style="width: 100%;">
                 </div>
-                <div class="col">
-                    <h5 class="display-4">Take Control of Your <strong class="text-primary">Money</strong></h5>
+                <div class="col col-12 col-md-6">
+                    <h5 class="display-4 py-2 py-md-0">Take Control of Your <strong class="text-primary">Money</strong></h5>
                     <h3 class="py-3">Finances at Your Fingertips</h3>
                     <ul>
                         <li>Harness real-time transaction alerts and insights to stay informed and proactive about your financial decisions.</li><br>
@@ -178,14 +178,14 @@ while ($sys = $res->fetch_object()) {
                 <img src="dist/market-analyze.webp" class="img-fluid img-cover"/>
             </div>
             <div class="intro-content">
-                <div class="row">
+                <div class="row p-5 text-center">
                     <div class="col col-md-8 m-auto">
                         <h5 class="text-dark">It's About Time! </h5>
                         <hr>
                         <h1>
                         Ready to take charge of your financial journey? Join us and discover personalized solutions designed to empower your financial success.
                         </h1>
-                        <button class="btn btn-outline-light btn-lg my-3">Get Started</button>
+                        <a class="btn btn-outline-light btn-lg my-3" href="client/pages_client_signup.php">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@ while ($sys = $res->fetch_object()) {
 
         <!-- Values  -->
         <!-- Testimonials Section -->
-        <section id="testimonials">
+        <section id="values">
         <div class="testimonials-clean">
             <div class="container py-5">
             <div class="intro">
@@ -270,7 +270,7 @@ while ($sys = $res->fetch_object()) {
   </footer>
 
     <div class="fb">
-        <button type="button" class="btn btn-danger p-3 floating-button" onclick="openSupportChat()">
+        <button type="button" class="btn btn-warning p-3 floating-button" onclick="openSupportChat()">
             <i class="fas fa-comment-dots mr-2"></i> Feeling Lost? We're Here To Help!
         </button>
         <!-- Example modal or chat interface to be displayed -->

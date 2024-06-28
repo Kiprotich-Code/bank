@@ -297,7 +297,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="pages_member_support.php" class="nav-link">
                     <i class="fas fa-users"></i>
                     <p>Members</p>
                   </a>

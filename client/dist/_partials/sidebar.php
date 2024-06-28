@@ -196,6 +196,37 @@
             </li>
             <!-- ./ End financial Reporting-->
 
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-headphones"></i>
+                <p>
+                  Support Center
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview mx-3">
+                <li class="nav-item">
+                  <a href="pages_client_messages.php" class="nav-link">
+                    <i class="fas fa-phone"></i>
+                    <p class="px-2">Contact Support</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages_client_messages.php" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <p class="px-2">Notifications</p>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="pages_financial_reporting_transfers.php" class="nav-link">
+                    <i class="fas fa-random nav-icon"></i>
+                    <p>Transfers</p>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+
+
             <!-- Log Out -->
             <li class="nav-item">
               <a href="pages_logout.php" class="nav-link">
